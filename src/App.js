@@ -1,7 +1,16 @@
 import "./App.css";
 import homeImage from './assets/homepageimage.svg'
+import items from "./assets/projects";
+
 
 function App() {
+
+    const loadAllProducts = () => {
+        return <div>
+
+        </div>
+    };
+
     return (
         <div className="App">
             <nav className="main-nav">
@@ -50,31 +59,51 @@ function App() {
                                 style={{color: 'red'}}>Java</span>.
                             </p>
                         </div>
-                        <div style={{padding: '20px 0px', fontSize: '18px'}}>
-                            <button><i className="fa fa-file" style={{marginRight: '.25rem'}}></i>See my resume</button>
+                        <div style={{padding: '20px 0px', fontSize: '22px'}}>
+                            <button className={"resume-button"}><i className="fa fa-file"
+                                                                   style={{marginRight: '.25rem'}}></i>See my resume
+                            </button>
                         </div>
                     </div>
 
                 </div>
-                <div className={'main-project'}>
-                    <div style={{fontSize: '22px'}}>
+                <div className={'main-project'} style={{backgroundColor: "rgb(98, 144, 200"}}>
+                    <div style={{fontSize: '48px'}}>
                         <h3>A few projects</h3></div>
-                    <div style={{fontSize: '16px'}}>
-                        Here is a list of projects i have done on my personal time or for
+                    <div style={{fontSize: '24px'}}>
+                        Here is a list of projects i have done in my personal time or for
                         studies
                     </div>
-                </div>
-                <div className={'project-items'}>
-
                     <div className={'categories'}>
 
                     </div>
-                    <div>
-                        
+                    <div className={'project-items'}>
+
+                        <div className={"project-items"}>
+                            {items.map((item) => {
+                                return <article className={"project"}>
+                                    <div className={"img-container"}>
+                                        <img src={item.image} alt="single room"/>
+                                    </div>
+                                    <div className={"project-description"}>
+                                        <h6>{item.name}</h6>
+                                        <p>{item.description}</p>
+                                        <div className={"project-links"}>
+                                            <a target="_blank" href={item.github}>github</a>
+                                            <a target="_blank" href={item.link}>Website</a>
+                                        </div>
+                                    </div>
+                                </article>
+                            })}
+                        </div>
                     </div>
                 </div>
-
             </main>
+
+            <footer>
+                Copyright by me
+            </footer>
+
         </div>
     );
 }
