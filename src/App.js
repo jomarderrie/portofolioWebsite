@@ -54,9 +54,12 @@ function App() {
                 }
             })
         })
+        if (filteredItems.length === 0 || filteredItems2.length === 0) {
+            setFilteredItems(items);
+        } else {
+            setFilteredItems(filteredItems2);
+        }
 
-        setFilteredItems(filteredItems2);
-        console.log(filteredItems2)
     }, [categories])
 
     let colours = [
@@ -79,7 +82,7 @@ function App() {
     function Footer() {
         const year = new Date().getFullYear();
         return (
-            <footer>
+            <footer style={{backgroundColor:'#1D3461', color:"white"}}>
                 <p>Copyright ⓒ {year}</p>
             </footer>
         );
